@@ -1,0 +1,25 @@
+import java.util.concurrent.Callable;
+
+public class Soma implements Callable<Long> {
+
+    private final short[] numeros;
+    private final int ini;
+    private final int qtde;
+
+    public Soma(short[] numeros, int ini, int qtde) {
+        this.numeros = numeros;
+        this.ini = ini;
+        this.qtde = qtde;
+    }
+
+    @Override
+    public Long call() {
+        long soma = 0;
+
+        for (int i = ini; i < ini + qtde; i++) {
+            soma += numeros[i];
+        }
+
+        return soma;
+    }
+}
